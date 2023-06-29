@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_app/pages/quiz_page.dart';
 import '../buttons/loginbtn.dart';
-// import '../buttons/quizbtn.dart';
 
 class ExamDetailsPage extends StatelessWidget {
   @override
@@ -28,7 +27,6 @@ class ExamDetailsPage extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Color(0xFFf2f2f2),
                   borderRadius: BorderRadius.circular(10)),
-              width: 400,
               height: 600,
               child: Padding(
                 padding: const EdgeInsets.all(15.0),

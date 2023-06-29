@@ -36,7 +36,9 @@ class _CompletedQuizPageState extends State<CompletedQuizPage> {
           "Completed Quiz",
           style: GoogleFonts.nunitoSans(
             textStyle: TextStyle(
-                fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 17,
+                color: Color(0xfff6b9080),
+                fontWeight: FontWeight.bold),
           ),
         ),
         backgroundColor: Colors.white,
@@ -144,7 +146,7 @@ class _CompletedQuizPageState extends State<CompletedQuizPage> {
 
   Future<List<CompletedQuizDetails>> getData() async {
     final response = await http.get(Uri.parse(
-        "http://$manthan_network/gsos/api.php?entity=result&user_id=$user_id"));
+        "${ipAddress}api.php?entity=result&user_id=$user_id"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

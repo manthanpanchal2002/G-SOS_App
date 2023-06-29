@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_app/pages/security_awareness_page.dart';
+import '../Routes/routes.dart';
 import '../data/GalleryForSAPDetails.dart';
 
 String? image;
@@ -58,40 +59,6 @@ class _GalleryForSAPPagePageState extends State<GalleryForSAPPage> {
                         child: Image.network(
                             "${gallery_for_SAP[index].contentImage}"),
                       ),
-                      // SizedBox(height: 10),
-                      // Padding(
-                      //   padding: const EdgeInsets.all(8.0),
-                      //   child: InkWell(
-                      //     overlayColor:
-                      //         MaterialStatePropertyAll<Color>(Colors.white),
-                      //     onTap: () {
-                      //       print("Downloaded");
-                      //     },
-                      //     child: Row(
-                      //       children: [
-                      //         Text(
-                      //           "Download",
-                      //           style: GoogleFonts.montserrat(
-                      //             textStyle: TextStyle(
-                      //               fontSize: 13,
-                      //             ),
-                      //           ),
-                      //         ),
-                      //         Spacer(),
-                      //         InkWell(
-                      //           overlayColor: MaterialStatePropertyAll<Color>(
-                      //               Colors.white),
-                      //           onTap: () {},
-                      //           child: Icon(
-                      //             CupertinoIcons.cloud_download,
-                      //             size: 15,
-                      //             color: Colors.green,
-                      //           ),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 );
@@ -111,7 +78,7 @@ class _GalleryForSAPPagePageState extends State<GalleryForSAPPage> {
 
   Future<List<GalleryForSapDetails>> getData() async {
     final response = await http.get(Uri.parse(
-        "http://192.168.60.137/gsos/api.php?entity=contentawareness&catagory_id=$id"));
+        "${ipAddress}api.php?entity=contentawareness&catagory_id=$id"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

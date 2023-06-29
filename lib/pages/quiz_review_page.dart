@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:my_app/pages/landing_page.dart';
 import 'package:my_app/pages/question_controller.dart';
 import 'package:pie_chart/pie_chart.dart';
+import '../Routes/routes.dart';
 import '../data/QuizReviewDetails.dart';
 import 'package:http/http.dart' as http;
 import 'completed_quiz_page.dart';
@@ -33,15 +34,6 @@ class QuizReviewPage extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                CupertinoIcons.cloud_download,
-                color: Colors.green,
-                size: 22,
-              )),
-        ],
       ),
       backgroundColor: Colors.white,
       body: Body(),
@@ -113,17 +105,9 @@ class _BodyState extends State<Body> {
                                       Column(
                                         children: [
                                           ListTile(
-                                            leading: Radio(
-                                              value: 1,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard1_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
+                                            // leading: Text("A. "),
                                             title: Text(
-                                              "${quiz_review_page[0].option1}",
+                                              "A)\t\t${quiz_review_page[0].option1}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -132,17 +116,9 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 2,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard1_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
+                                            // leading: Text("B."),
                                             title: Text(
-                                              "${quiz_review_page[0].option2}",
+                                              "B)\t\t${quiz_review_page[0].option2}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -151,17 +127,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 3,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard1_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[0].option3}",
+                                              "C)\t\t${quiz_review_page[0].option3}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -170,17 +137,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 4,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard1_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[0].option4}",
+                                              "D)\t\t${quiz_review_page[0].option4}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -238,17 +196,8 @@ class _BodyState extends State<Body> {
                                       Column(
                                         children: [
                                           ListTile(
-                                            leading: Radio(
-                                              value: 1,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard2_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[1].option1}",
+                                              "A)\t\t${quiz_review_page[1].option1}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -257,17 +206,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 2,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard2_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[1].option2}",
+                                              "B)\t\t${quiz_review_page[1].option2}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -276,17 +216,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 3,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard2_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[1].option3}",
+                                              "C)\t\t${quiz_review_page[1].option3}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -295,17 +226,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 4,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard2_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[1].option4}",
+                                              "D)\t\t${quiz_review_page[1].option4}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -362,17 +284,8 @@ class _BodyState extends State<Body> {
                                       Column(
                                         children: [
                                           ListTile(
-                                            leading: Radio(
-                                              value: 1,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard3_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[2].option1}",
+                                              "A)\t\t${quiz_review_page[2].option1}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -381,17 +294,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 2,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard3_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[2].option2}",
+                                              "B)\t\t${quiz_review_page[2].option2}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -400,17 +304,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 3,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard3_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[2].option3}",
+                                              "C)\t\t${quiz_review_page[2].option3}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -419,17 +314,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 4,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard3_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[2].option4}",
+                                              "D)\t\t${quiz_review_page[2].option4}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -485,17 +371,8 @@ class _BodyState extends State<Body> {
                                       Column(
                                         children: [
                                           ListTile(
-                                            leading: Radio(
-                                              value: 1,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard4_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[3].option1}",
+                                              "A)\t\t${quiz_review_page[3].option1}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -504,17 +381,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 2,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard4_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[3].option2}",
+                                              "B)\t\t${quiz_review_page[3].option2}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -523,17 +391,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 3,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard4_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[3].option3}",
+                                              "C)\t\t${quiz_review_page[3].option3}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -542,17 +401,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 4,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard4_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[3].option4}",
+                                              "D)\t\t${quiz_review_page[3].option4}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -609,17 +459,8 @@ class _BodyState extends State<Body> {
                                       Column(
                                         children: [
                                           ListTile(
-                                            leading: Radio(
-                                              value: 1,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard5_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[4].option1}",
+                                              "A)\t\${quiz_review_page[4].option1}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -628,17 +469,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 2,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard5_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[4].option2}",
+                                              "B)\t\t${quiz_review_page[4].option2}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -647,17 +479,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 3,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard5_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[4].option3}",
+                                              "C)\t\t${quiz_review_page[4].option3}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -666,17 +489,8 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           ListTile(
-                                            leading: Radio(
-                                              value: 4,
-                                              activeColor: Color(0xffff6b9080),
-                                              groupValue: 0,
-                                              // quizCard5_selectedOption,
-                                              onChanged: (val) {
-                                                print(val);
-                                              },
-                                            ),
                                             title: Text(
-                                              "${quiz_review_page[4].option4}",
+                                              "D)\t\t${quiz_review_page[4].option4}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
@@ -722,7 +536,7 @@ class _BodyState extends State<Body> {
 
   Future<List<QuizReviewDetails>> getData() async {
     final response = await http.get(Uri.parse(
-        "http://192.168.60.137/gsos/api.php?entity=detailedresult&user_id=$user_id&subject_id=$completed_quiz_subID"));
+        "${ipAddress}api.php?entity=detailedresult&user_id=$user_id&subject_id=$completed_quiz_subID"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {
@@ -777,6 +591,10 @@ class GraphicalData extends StatelessWidget {
                               ),
                               SizedBox(height: 20),
                               PieChart(
+                                colorList: [
+                                  Colors.green,
+                                  Colors.red,
+                                ],
                                 dataMap: dataMap,
                                 animationDuration: Duration(milliseconds: 1000),
                                 chartLegendSpacing: 48,

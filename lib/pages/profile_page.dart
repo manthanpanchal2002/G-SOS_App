@@ -28,31 +28,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         elevation: 0.0,
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {
-        //       Blurry.error(
-        //         title: "Log out",
-        //         description: "Are you sure you want to log out?",
-        //         confirmButtonText: "Ok",
-        //         onConfirmButtonPressed: () {
-        //           Navigator.pushReplacement(
-        //             context,
-        //             MaterialPageRoute(
-        //               builder: (_) => LandingPage(),
-        //             ),
-        //           );
-        //         },
-        //       ).show(context);
-        //       print("Logout");
-        //     },
-        //     icon: const Icon(
-        //       Icons.logout,
-        //       color: Colors.black,
-        //       size: 20,
-        //     ),
-        //   ),
-        // ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -112,12 +87,6 @@ class Body_for_Profile extends StatelessWidget {
                     description: "Are you sure you want to log out?",
                     confirmButtonText: "Ok",
                     onConfirmButtonPressed: () {
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (_) => LandingPage(),
-                      //   ),
-                      // );
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
@@ -150,11 +119,6 @@ class Body_for_Profile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Icon(
-                    //   Icons.logout,
-                    //   color: Colors.black,
-                    //   size: 15,
-                    // ),
                   ],
                 ),
               ),
@@ -170,7 +134,7 @@ class Body_for_Profile extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15.0),
                   child: Text(
-                    "Quiz",
+                    "Quiz category",
                     style: GoogleFonts.nunitoSans(
                       textStyle:
                           TextStyle(fontSize: 15, color: Color(0xFFcccccc)),

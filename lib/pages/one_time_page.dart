@@ -1,5 +1,7 @@
 // import 'dart:async';
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intro_slider/intro_slider.dart';
@@ -14,6 +16,9 @@ class OneTimePage extends StatefulWidget {
 class _OneTimePageState extends State<OneTimePage> {
   List<ContentConfig> listContentConfig = [];
 
+  // get random number between 1 to 5
+  var intValue = Random().nextInt(10) + 1;
+
   @override
   void initState() {
     super.initState();
@@ -23,15 +28,17 @@ class _OneTimePageState extends State<OneTimePage> {
         title: "Is Digital World scary?",
         styleTitle: GoogleFonts.nunitoSans(
           textStyle: TextStyle(
+            fontSize: 10,
             color: Colors.black,
             fontWeight: FontWeight.w700,
           ),
         ),
         description: "This digital world is what you make of it in the end.",
         styleDescription: GoogleFonts.montserrat(
-          textStyle: TextStyle(color: Color(0xFF8c8c8c), fontSize: 18),
+          textStyle: TextStyle(color: Color(0xFF8c8c8c), fontSize: 15),
         ),
         pathImage: "assets/images/img_7.png",
+        heightImage: 200,
         backgroundColor: Colors.white,
       ),
     );
@@ -40,15 +47,17 @@ class _OneTimePageState extends State<OneTimePage> {
         title: "No, just be Aware",
         styleTitle: GoogleFonts.nunitoSans(
           textStyle: TextStyle(
+            fontSize: 10,
             color: Colors.black,
             fontWeight: FontWeight.w700,
           ),
         ),
         description: "If it's smart, it's vulnerable.",
         styleDescription: GoogleFonts.montserrat(
-          textStyle: TextStyle(color: Color(0xFF8c8c8c), fontSize: 18),
+          textStyle: TextStyle(color: Color(0xFF8c8c8c), fontSize: 15),
         ),
         pathImage: "assets/images/img_8.png",
+        heightImage: 200,
         backgroundColor: Colors.white,
       ),
     );
@@ -57,15 +66,17 @@ class _OneTimePageState extends State<OneTimePage> {
         title: "Be Aware with us",
         styleTitle: GoogleFonts.nunitoSans(
           textStyle: TextStyle(
+            fontSize: 10,
             color: Colors.black,
             fontWeight: FontWeight.w700,
           ),
         ),
         description: "Your Ally in Digital Warfare!",
         styleDescription: GoogleFonts.montserrat(
-          textStyle: TextStyle(color: Color(0xFF8c8c8c), fontSize: 18),
+          textStyle: TextStyle(color: Color(0xFF8c8c8c), fontSize: 15),
         ),
         pathImage: "assets/images/img_9.png",
+        heightImage: 200,
         backgroundColor: Colors.white,
       ),
     );
@@ -73,36 +84,35 @@ class _OneTimePageState extends State<OneTimePage> {
 
   @override
   Widget build(BuildContext context) {
-    return IntroSlider(
-      key: UniqueKey(),
-      listContentConfig: listContentConfig,
-      renderDoneBtn: Text(
-        "NEXT",
-      ),
-      onDonePress: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => finalPage()),
-        );
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
       },
-      // onSkipPress: () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(builder: (_) => finalPage()),
-      // );
-      // },
-      isShowSkipBtn: false,
-      doneButtonStyle: ButtonStyle(
-        foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
-        overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
-      ),
-      prevButtonStyle: ButtonStyle(
-        foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
-        overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
-      ),
-      nextButtonStyle: ButtonStyle(
-        foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
-        overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
+      child: IntroSlider(
+        key: UniqueKey(),
+        listContentConfig: listContentConfig,
+        renderDoneBtn: Text(
+          "NEXT",
+        ),
+        onDonePress: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => finalPage()),
+          );
+        },
+        isShowSkipBtn: false,
+        doneButtonStyle: ButtonStyle(
+          foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
+          overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
+        ),
+        prevButtonStyle: ButtonStyle(
+          foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
+          overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
+        ),
+        nextButtonStyle: ButtonStyle(
+          foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
+          overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
+        ),
       ),
     );
   }
@@ -140,7 +150,7 @@ class finalPage extends StatelessWidget {
                               "Welcome to G-SOS",
                               style: GoogleFonts.nunitoSans(
                                 textStyle: TextStyle(
-                                    fontWeight: FontWeight.w900, fontSize: 30),
+                                    fontWeight: FontWeight.w900, fontSize: 20),
                               ),
                             ),
                           ),
@@ -150,14 +160,16 @@ class finalPage extends StatelessWidget {
                           children: [
                             Spacer(),
                             Container(
-                              child: Text("Powered By\t",
-                                  style: GoogleFonts.nunitoSans(
-                                    textStyle: TextStyle(fontSize: 12),
-                                  )),
+                              child: Text(
+                                "Powered By\t",
+                                style: GoogleFonts.nunitoSans(
+                                  textStyle: TextStyle(fontSize: 10),
+                                ),
+                              ),
                             ),
                             Image.asset(
                               "assets/images/img_2.png",
-                              height: 18,
+                              height: 16,
                             ),
                             Spacer(),
                           ],
@@ -172,7 +184,7 @@ class finalPage extends StatelessWidget {
                                   alignment: Alignment.center,
                                   child: Text("Know your skills",
                                       style: GoogleFonts.montserrat(
-                                        textStyle: TextStyle(fontSize: 28),
+                                        textStyle: TextStyle(fontSize: 17),
                                       )),
                                 ),
                               ),
@@ -183,7 +195,7 @@ class finalPage extends StatelessWidget {
                                   child: Text("by challenging youself",
                                       style: GoogleFonts.montserrat(
                                         textStyle: TextStyle(
-                                            fontSize: 28,
+                                            fontSize: 17,
                                             color: Color(0xffff6b9080),
                                             fontWeight: FontWeight.w600),
                                       )),

@@ -34,7 +34,9 @@ class _AssignQuizPageState extends State<AssignQuizPage> {
           "Assigned Quiz",
           style: GoogleFonts.nunitoSans(
             textStyle: TextStyle(
-                fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 17,
+                color: Color(0xfff6b9080),
+                fontWeight: FontWeight.bold),
           ),
         ),
         backgroundColor: Colors.white,
@@ -136,7 +138,7 @@ class _AssignQuizPageState extends State<AssignQuizPage> {
 
   Future<List<AssignedQuizDetails>> getData() async {
     final response = await http.get(Uri.parse(
-        "http://$manthan_network/gsos/api.php?entity=assigned&user_id=$user_id"));
+        "${ipAddress}api.php?entity=assigned&user_id=$user_id"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

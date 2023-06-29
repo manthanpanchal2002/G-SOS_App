@@ -20,23 +20,30 @@ import 'package:my_app/pages/terms_and_condition_page.dart';
 import 'package:my_app/pages/training_video_page.dart';
 import 'package:my_app/pages/verify_otp_page.dart';
 import 'package:my_app/pages/welcome_page.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'Routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       color: Colors.white,
-      // initialRoute: MyRoutes.WelcomePage,
-      initialRoute: MyRoutes.LandingPage,
+
+      initialRoute: MyRoutes.WelcomePage,
+      // initialRoute: MyRoutes.LandingPage,
       // initialRoute: MyRoutes.HomePage,
       // initialRoute: MyRoutes.Dashboardpage,
       // initialRoute: MyRoutes.ProfilePage,
@@ -82,3 +89,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// void storedLoggedInUser(bool isLoggedInUser) async {
+//   SharedPreferences preferences = await SharedPreferences.getInstance();
+//   preferences.setBool("isLoggedIn", isLoggedInUser);
+// }
+
+// Future<bool?> isLoggedInSatus() async {
+//   SharedPreferences preferences = await SharedPreferences.getInstance();
+//   return preferences.getBool("isLoggedIn") ?? false;
+// }

@@ -4,8 +4,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'package:my_app/pages/verify_otp_page.dart';
+import '../Routes/routes.dart';
 import '../buttons/loginbtn.dart';
-// import 'landing_page.dart';
+
 
 class GetEmailPage extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _GetEmailPageState extends State<GetEmailPage> {
 
   // ignore: non_constant_identifier_names
   void GetEmail(String email) async {
-    final url = "http://192.168.60.137/gsos/api.php?entity=otp&email=$email";
+    final url = "${ipAddress}api.php?entity=otp&email=$email";
     try {
       final response = await post(Uri.parse(url), body: {
         'e': email,
@@ -43,7 +44,6 @@ class _GetEmailPageState extends State<GetEmailPage> {
                 builder: (_) => VerifyOTPPage(),
               ),
               (route) => false);
-          // Navigator.pushNamed(context, "/verifyOTPpage");
           print("User found with entered emailId");
         } else if (data['success'] == false) {
           Fluttertoast.showToast(
@@ -176,11 +176,9 @@ class _GetEmailPageState extends State<GetEmailPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       GetEmail(emailController.text);
-                      // Navigator.pushNamed(context, "/verifyOTPpage");
-                      // return;
                       print("Mail Sent");
                     }
-                    // _formKey.currentState?.save();
+          
                   },
                   child: const Text("Get OTP"),
                 ),

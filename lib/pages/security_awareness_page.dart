@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import '../Routes/routes.dart';
 import '../data/SecurityAwarenessDetails.dart';
 
 int? id;
 String? title;
-
 
 class SecurityAwarenessPage extends StatefulWidget {
   @override
@@ -33,7 +33,9 @@ class _SecurityAwarenessPageState extends State<SecurityAwarenessPage> {
           "Security Awareness",
           style: GoogleFonts.nunitoSans(
             textStyle: TextStyle(
-                fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 17,
+                color: Color(0xfff6b9080),
+                fontWeight: FontWeight.bold),
           ),
         ),
         elevation: 0.0,
@@ -125,7 +127,7 @@ class _SecurityAwarenessPageState extends State<SecurityAwarenessPage> {
 
   Future<List<SecurityAwarenessDetails>> getData() async {
     final response = await http.get(Uri.parse(
-        "http://192.168.60.137/gsos/api.php?entity=contentawarenesscatagory"));
+        "${ipAddress}api.php?entity=contentawarenesscatagory"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

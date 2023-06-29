@@ -4,25 +4,40 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_app/pages/landing_page.dart';
 import 'package:my_app/pages/profile_page.dart';
 import 'package:my_app/pages/training_page.dart';
-// import 'package:my_app/pages/terms_and_condition_page.dart';
-import 'about_us_page.dart';
-// import 'assign_quiz_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dashboard_page.dart';
-// import 'notification_page.dart';
+import 'help_section_onNav.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
+SharedPreferences? logindata;
+String? username;
+
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata?.getString('username');
+    });
+  }
 
   final List<Widget> _widgetOptions = [
     DashboardPage(),
     TrainingPage(),
     ProfilePage(),
-    AboutUsPage(),
+    HelpSectionOnNav(),
   ];
 
   void _onItemTapped(int index) {
@@ -32,38 +47,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         Navigator.push(context,
-      //             MaterialPageRoute(builder: (context) => ProfilePage()));
-      //       },
-      //       icon: const Icon(
-      //         CupertinoIcons.person_fill,
-      //         color: Colors.black,
-      //         size: 22,
-      //       ),
-      //     ),
-      //     // IconButton(
-      //     //     onPressed: () {},
-      //     //     icon: const Icon(
-      //     //       CupertinoIcons.question_circle_fill,
-      //     //       color: Colors.black,
-      //     //       size: 22,
-      //     //     )),
-      //   ],
-      //   elevation: 0,
-      //   scrolledUnderElevation: 3,
-      //   shadowColor: Color(0xFFa4c3b2),
-      // ),
       body: SafeArea(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -89,7 +77,7 @@ class _HomePageState extends State<HomePage> {
             ),
             label: 'Tutorials',
             backgroundColor: Colors.white,
-            // backgroundColor: Colors.green,
+       
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -99,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             ),
             label: "$user_name's space",
             backgroundColor: Colors.white,
-            // backgroundColor: Colors.purple,
+  
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -109,7 +97,7 @@ class _HomePageState extends State<HomePage> {
             ),
             label: 'Help',
             backgroundColor: Colors.white,
-            // backgroundColor: Colors.pink,
+   
           ),
         ],
         currentIndex: _selectedIndex,

@@ -1,5 +1,15 @@
-String sahil_network = "";
-String manthan_network = "192.168.60.137";
+// sahil's ipAddress
+// String ipAddress = "http://192.168.56.137/gsos/"
+
+// greenTeam's ipAddress
+// String ipAddress = "http://172.17.16.80/gsos/";
+
+// manthan's ipAddress
+// String ipAddress = "http://192.168.60.137/gsos/";
+
+// hosting ipAddress
+String ipAddress = "https://mygsos.000webhostapp.com/";
+
 
 class MyRoutes {
   static String WelcomePage = '/welcomepage';

@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:my_app/ColorPalette/colors.dart';
-
+import 'package:my_app/pages/training_video_page.dart';
+import '../Routes/routes.dart';
 import '../data/TrainingDetails.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
@@ -27,7 +26,9 @@ class _TrainingPageState extends State<TrainingPage> {
           "Knowledge tutorials",
           style: GoogleFonts.nunitoSans(
             textStyle: TextStyle(
-                fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 17,
+                color: Color(0xfff6b9080),
+                fontWeight: FontWeight.bold),
           ),
         ),
         elevation: 0,
@@ -43,6 +44,10 @@ class _TrainingPageState extends State<TrainingPage> {
                 return InkWell(
                   overlayColor: MaterialStatePropertyAll<Color>(Colors.white),
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TrainingVideoPage()));
                     print("clicked");
                   },
                   child: Container(
@@ -113,7 +118,7 @@ class _TrainingPageState extends State<TrainingPage> {
 
   Future<List<TrainingDetails>> getData() async {
     final response = await http
-        .get(Uri.parse("http://192.168.60.137/gsos/api.php?entity=training"));
+        .get(Uri.parse("${ipAddress}api.php?entity=training"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

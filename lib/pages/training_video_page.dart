@@ -1,7 +1,8 @@
 import 'dart:convert';
-import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 import 'package:http/http.dart' as http;
+import '../Routes/routes.dart';
 import '../data/TrainingVideoDetails.dart';
 
 class TrainingVideoPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _TrainingVideoPageState extends State<TrainingVideoPage> {
   @override
   void initState() {
     _controller = VideoPlayerController.network(
-      'https://youtu.be/piw7l5KzuwY',
+      "http://192.168.60.137/gsos/video/physical_security.mp4",
     );
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
@@ -71,18 +72,18 @@ class _TrainingVideoPageState extends State<TrainingVideoPage> {
     );
   }
 
-  Future<List<TrainingVideoDetails>> getData() async {
-    final response = await http.get(Uri.parse(
-        "http://192.168.60.137/gsos/api.php?entity=training_video&training_name=phishing"));
-    var data = jsonDecode(response.body.toString());
+  // Future<List<TrainingVideoDetails>> getData() async {
+  //   final response = await http.get(Uri.parse(
+  //       "http://$ipAddress/gsos/api.php?entity=training_video&id=1"));
+  //   var data = jsonDecode(response.body.toString());
 
-    if (response.statusCode == 200) {
-      for (Map<String, dynamic> index in data) {
-        training_video_details.add(TrainingVideoDetails.fromJson(index));
-      }
-      return training_video_details;
-    } else {
-      return training_video_details;
-    }
-  }
+  //   if (response.statusCode == 200) {
+  //     for (Map<String, dynamic> index in data) {
+  //       training_video_details.add(TrainingVideoDetails.fromJson(index));
+  //     }
+  //     return training_video_details;
+  //   } else {
+  //     return training_video_details;
+  //   }
+  // }
 }
