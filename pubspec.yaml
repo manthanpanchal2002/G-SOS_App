@@ -58,16 +58,12 @@ dependencies:
   pinput: ^2.2.31
   material_design_icons_flutter: ^7.0.7296
   line_icons: ^2.0.1
-  # video_player: ^2.6.1
-  # flick_video_player: ^0.3.1
-  # image_downloader: ^0.31.0
   flutter_launcher_icons: ^0.13.1
   video_player: ^2.6.1
   firebase_auth: ^4.6.3
   intl: ^0.18.1
   shared_preferences: ^2.1.2
-  # video_player: ^2.6.1
-  # flick_video_player: ^0.3.1
+  flick_video_player: ^0.3.1
 
 dev_dependencies:
   flutter_test:

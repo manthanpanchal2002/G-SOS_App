@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'one_time_page.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -30,6 +31,27 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 15.0),
+        child: Row(
+          children: [
+            Spacer(),
+            Container(
+              child: Text(
+                "Powered By\t",
+                style: GoogleFonts.nunitoSans(
+                  textStyle: TextStyle(fontSize: 8),
+                ),
+              ),
+            ),
+            Image.asset(
+              "assets/images/img_2.png",
+              height: 14,
+            ),
+            Spacer(),
+          ],
         ),
       ),
     );

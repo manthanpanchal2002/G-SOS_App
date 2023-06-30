@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:blurry/blurry.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +10,6 @@ import '../data/UserQuizData.dart';
 import 'assign_quiz_page.dart';
 import 'home_page.dart';
 import 'package:http/http.dart' as http;
-
 
 class QuizPage extends StatelessWidget {
   @override
@@ -24,7 +22,9 @@ class QuizPage extends StatelessWidget {
           "${title_name} Quiz",
           style: GoogleFonts.nunitoSans(
             textStyle: TextStyle(
-                fontSize: 17, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 17,
+                color: Color(0xfff6b9080),
+                fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -188,6 +188,8 @@ class _BodyState extends State<Body> {
               future: getData(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
+                  // startTimer();
+                  // reset();
                   return Expanded(
                     child: ListView.builder(
                       itemCount: 1,
@@ -857,6 +859,7 @@ class _BodyState extends State<Body> {
                                                 groupValue:
                                                     quizCard4_selectedOption,
                                                 onChanged: (val) {
+                                                  quizCard4_flag = true;
                                                   print(val);
                                                   QuizCard4_setSelectedOption(
                                                       val!);
@@ -1130,8 +1133,8 @@ class _BodyState extends State<Body> {
   }
 
   Future<List<QuestionsForQuiz>> getData() async {
-    final response = await http.get(Uri.parse(
-        "${ipAddress}api.php?entity=quiz&cat_id=$subj_id"));
+    final response = await http
+        .get(Uri.parse("${ipAddress}api.php?entity=quiz&cat_id=$subj_id"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

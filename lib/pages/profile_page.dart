@@ -30,11 +30,9 @@ class ProfilePage extends StatelessWidget {
         elevation: 0.0,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Body_for_Profile(),
-          ),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Body_for_Profile(),
         ),
       ),
     );
@@ -51,78 +49,43 @@ class Body_for_Profile extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Row(
-            children: [
-              Image.asset(
-                "assets/images/user.png",
-                height: 70,
-                width: 70,
+          ListTile(
+            leading: Image.asset(
+              "assets/images/user.png",
+              height: 70,
+              width: 70,
+            ),
+            title: Text(
+              "$user_name",
+              style: GoogleFonts.montserrat(
+                textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
-              SizedBox(width: 15),
-              Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "$user_name",
-                      style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "$user_email",
-                    style: GoogleFonts.montserrat(
-                      textStyle: TextStyle(fontSize: 13),
-                    ),
-                  ),
-                ],
+            ),
+            subtitle: Text(
+              "$user_email",
+              style: GoogleFonts.montserrat(
+                textStyle: TextStyle(fontSize: 13),
               ),
-              Spacer(),
-              InkWell(
-                onTap: () {
-                  Blurry.error(
-                    title: "Log out",
-                    description: "Are you sure you want to log out?",
-                    confirmButtonText: "Ok",
-                    onConfirmButtonPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => LandingPage(),
-                          ),
-                          (route) => false);
-                    },
-                  ).show(context);
-                  print("Logout");
-                },
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 0.5,
-                          ),
-                          borderRadius: BorderRadius.circular(6)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 8.0, right: 8.0, top: 6.0, bottom: 6.0),
-                        child: Text(
-                          "Logout",
-                          style: GoogleFonts.montserrat(
-                            textStyle: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xfffa4c3b2)),
-                          ),
+            ),
+            trailing: InkWell(
+              onTap: () {
+                Blurry.error(
+                  title: "Log out",
+                  description: "Are you sure you want to log out?",
+                  confirmButtonText: "Ok",
+                  onConfirmButtonPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => LandingPage(),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                        (route) => false);
+                  },
+                ).show(context);
+                print("Logout");
+              },
+              child: Icon(Icons.logout, color: Color(0xfffa4c3b2), size: 20),
+            ),
           ),
 
           Divider(),

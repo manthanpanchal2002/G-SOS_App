@@ -86,7 +86,7 @@ class _CompletedQuizPageState extends State<CompletedQuizPage> {
                             },
                             leading: Image.network(
                               "${completed_quiz_details[index].subjectImage}",
-                              height: 18,
+                              height: 25,
                             ),
                             title: Text(
                               "${completed_quiz_details[index].subjectName}",
@@ -145,8 +145,8 @@ class _CompletedQuizPageState extends State<CompletedQuizPage> {
   }
 
   Future<List<CompletedQuizDetails>> getData() async {
-    final response = await http.get(Uri.parse(
-        "${ipAddress}api.php?entity=result&user_id=$user_id"));
+    final response = await http
+        .get(Uri.parse("${ipAddress}api.php?entity=result&user_id=$user_id"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

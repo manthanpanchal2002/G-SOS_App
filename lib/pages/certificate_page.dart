@@ -64,7 +64,7 @@ class _CertificatePageState extends State<CertificatePage> {
                             ),
                             leading: Image.network(
                               "${user_certificate_details[index].subjectImage}",
-                              height: 18,
+                              height: 25,
                             ),
                             title: Text(
                               "${user_certificate_details[index].subjectName}",
@@ -123,8 +123,8 @@ class _CertificatePageState extends State<CertificatePage> {
   }
 
   Future<List<UserCertificateDetails>> getData() async {
-    final response = await http.get(Uri.parse(
-        "${ipAddress}api.php?entity=certificate&user_id=$user_id"));
+    final response = await http.get(
+        Uri.parse("${ipAddress}api.php?entity=certificate&user_id=$user_id"));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intro_slider/intro_slider.dart';
-import '../buttons/loginbtn.dart';
+// import '../buttons/loginbtn.dart';
 import 'landing_page.dart';
 
 class OneTimePage extends StatefulWidget {
@@ -15,9 +15,6 @@ class OneTimePage extends StatefulWidget {
 
 class _OneTimePageState extends State<OneTimePage> {
   List<ContentConfig> listContentConfig = [];
-
-  // get random number between 1 to 5
-  var intValue = Random().nextInt(10) + 1;
 
   @override
   void initState() {
@@ -97,7 +94,7 @@ class _OneTimePageState extends State<OneTimePage> {
         onDonePress: () {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (_) => finalPage()),
+            MaterialPageRoute(builder: (_) => LandingPage()),
           );
         },
         isShowSkipBtn: false,
@@ -118,114 +115,114 @@ class _OneTimePageState extends State<OneTimePage> {
   }
 }
 
-class finalPage extends StatelessWidget {
-  const finalPage({
-    super.key,
-  });
+// class finalPage extends StatelessWidget {
+//   const finalPage({
+//     super.key,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Image.asset(
-                      "assets/images/logo_2.png",
-                    ),
-                  ),
-                  Center(
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Welcome to G-SOS",
-                              style: GoogleFonts.nunitoSans(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w900, fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 3),
-                        Row(
-                          children: [
-                            Spacer(),
-                            Container(
-                              child: Text(
-                                "Powered By\t",
-                                style: GoogleFonts.nunitoSans(
-                                  textStyle: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ),
-                            Image.asset(
-                              "assets/images/img_2.png",
-                              height: 16,
-                            ),
-                            Spacer(),
-                          ],
-                        ),
-                        SizedBox(height: 50),
-                        Container(
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text("Know your skills",
-                                      style: GoogleFonts.montserrat(
-                                        textStyle: TextStyle(fontSize: 17),
-                                      )),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text("by challenging youself",
-                                      style: GoogleFonts.montserrat(
-                                        textStyle: TextStyle(
-                                            fontSize: 17,
-                                            color: Color(0xffff6b9080),
-                                            fontWeight: FontWeight.w600),
-                                      )),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15, bottom: 50),
-        child: ElevatedButton(
-          style: loginbtn,
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (_) => LandingPage()),
-            );
-          },
-          child: Text("Let's Get Started"),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: Padding(
+//           padding: const EdgeInsets.all(15.0),
+//           child: SingleChildScrollView(
+//             child: Container(
+//               child: Column(
+//                 children: [
+//                   Align(
+//                     alignment: Alignment.topCenter,
+//                     child: Image.asset(
+//                       "assets/images/logo_2.png",
+//                     ),
+//                   ),
+//                   Center(
+//                     child: Column(
+//                       children: [
+//                         Align(
+//                           alignment: Alignment.centerLeft,
+//                           child: Align(
+//                             alignment: Alignment.center,
+//                             child: Text(
+//                               "Welcome to G-SOS",
+//                               style: GoogleFonts.nunitoSans(
+//                                 textStyle: TextStyle(
+//                                     fontWeight: FontWeight.w900, fontSize: 20),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                         SizedBox(height: 3),
+//                         Row(
+//                           children: [
+//                             Spacer(),
+//                             Container(
+//                               child: Text(
+//                                 "Powered By\t",
+//                                 style: GoogleFonts.nunitoSans(
+//                                   textStyle: TextStyle(fontSize: 10),
+//                                 ),
+//                               ),
+//                             ),
+//                             Image.asset(
+//                               "assets/images/img_2.png",
+//                               height: 16,
+//                             ),
+//                             Spacer(),
+//                           ],
+//                         ),
+//                         SizedBox(height: 50),
+//                         Container(
+//                           child: Column(
+//                             children: [
+//                               Align(
+//                                 alignment: Alignment.centerLeft,
+//                                 child: Align(
+//                                   alignment: Alignment.center,
+//                                   child: Text("Know your skills",
+//                                       style: GoogleFonts.montserrat(
+//                                         textStyle: TextStyle(fontSize: 17),
+//                                       )),
+//                                 ),
+//                               ),
+//                               Align(
+//                                 alignment: Alignment.centerLeft,
+//                                 child: Align(
+//                                   alignment: Alignment.center,
+//                                   child: Text("by challenging youself",
+//                                       style: GoogleFonts.montserrat(
+//                                         textStyle: TextStyle(
+//                                             fontSize: 17,
+//                                             color: Color(0xffff6b9080),
+//                                             fontWeight: FontWeight.w600),
+//                                       )),
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//       bottomNavigationBar: Padding(
+//         padding: const EdgeInsets.only(left: 15, right: 15, bottom: 50),
+//         child: ElevatedButton(
+//           style: loginbtn,
+//           onPressed: () {
+//             Navigator.pushReplacement(
+//               context,
+//               MaterialPageRoute(builder: (_) => LandingPage()),
+//             );
+//           },
+//           child: Text("Let's Get Started"),
+//         ),
+//       ),
+//     );
+//   }
+// }

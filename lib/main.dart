@@ -20,7 +20,6 @@ import 'package:my_app/pages/terms_and_condition_page.dart';
 import 'package:my_app/pages/training_video_page.dart';
 import 'package:my_app/pages/verify_otp_page.dart';
 import 'package:my_app/pages/welcome_page.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 import 'Routes/routes.dart';
 
 void main() {

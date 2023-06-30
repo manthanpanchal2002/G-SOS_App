@@ -9,7 +9,6 @@ import 'completed_quiz_page.dart';
 import 'landing_page.dart';
 import 'notification_page.dart';
 
-
 class DashboardPage extends StatefulWidget {
   @override
   State<DashboardPage> createState() => _DashboardPageState();
@@ -78,7 +77,6 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                           ),
                           SizedBox(height: 20),
-                  
                           InkWell(
                             onTap: () {
                               Navigator.push(
@@ -99,7 +97,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                     children: [
                                       Align(
                                         alignment: Alignment.topLeft,
-                                        child: Text("Recent Attempts",
+                                        child: Text("Recent Attempt",
                                             style: GoogleFonts.nunitoSans(
                                               textStyle: TextStyle(
                                                   fontSize: 19,

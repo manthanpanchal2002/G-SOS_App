@@ -9,7 +9,7 @@ import '../pages/landing_page.dart';
 import '../pages/quiz_page.dart';
 
 Future<http.Response> getUserDataForScore() async {
-  var url = "http://$ipAddress/gsos/api.php?entity=mcqs";
+  var url = "${ipAddress}api.php?entity=mcqs";
   Map data = {
     "uid": user_id,
     "cat_id": questions_for_quiz[0].catagoryId,

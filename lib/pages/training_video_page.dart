@@ -1,12 +1,12 @@
-import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
-import 'package:http/http.dart' as http;
-import '../Routes/routes.dart';
 import '../data/TrainingVideoDetails.dart';
+import 'assign_quiz_page.dart';
 
 class TrainingVideoPage extends StatefulWidget {
-  const TrainingVideoPage({super.key});
+  const TrainingVideoPage({Key? key}) : super(key: key);
 
   @override
   State<TrainingVideoPage> createState() => _TrainingVideoPageState();
@@ -17,73 +17,124 @@ class _TrainingVideoPageState extends State<TrainingVideoPage> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
 
+  bool? flag = false;
+
+  void isVideoEnded() {
+    if (_controller.value.position >= _controller.value.duration) {
+      setState(() {
+        flag = true;
+      });
+      if (flag == true) {
+        print("Video Ended");
+        _controller.pause();
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AssignQuizPage(),
+          ),
+        );
+      }
+    }
+  }
+
   @override
   void initState() {
     _controller = VideoPlayerController.network(
-      "http://192.168.60.137/gsos/video/physical_security.mp4",
+      "https://www.w3schools.com/html/mov_bbb.mp4",
     );
     _initializeVideoPlayerFuture = _controller.initialize();
-    _controller.setLooping(true);
+    _controller.setLooping(false);
+
     super.initState();
   }
 
   @override
   void dispose() {
+    _controller.removeListener(isVideoEnded);
     _controller.dispose();
     super.dispose();
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _controller.addListener(isVideoEnded);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder(
-        future: _initializeVideoPlayerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            );
-          } else {
-            return Center(
-                child: CircularProgressIndicator(
-              color: Colors.black,
-            ));
-          }
-        },
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            // pause
-            if (_controller.value.isPlaying) {
-              _controller.pause();
-            } else {
-              // play
-              _controller.play();
-            }
-          });
-        },
-        // icon
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: FutureBuilder(
+            future: _initializeVideoPlayerFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFFeeeeee),
+                      borderRadius: BorderRadius.circular(10)),
+                  height: 300,
+                  child: Column(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: _controller.value.aspectRatio,
+                        child: VideoPlayer(_controller),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          setState(
+                            () {
+                              if (_controller.value.isPlaying) {
+                                isVideoEnded();
+                              } else {
+                                _controller.play();
+                              }
+                            },
+                          );
+                        },
+                        child: ButtonBar(
+                          alignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              _controller.value.isPlaying
+                                  ? Icons.pause
+                                  : Icons.play_arrow,
+                              color: Colors.black,
+                            ),
+                            Text(
+                              _controller.value.isPlaying ? "Pause" : "Play",
+                              style: GoogleFonts.nunitoSans(
+                                textStyle: TextStyle(
+                                    fontSize: 13, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.black,
+                  ),
+                );
+              }
+            },
+          ),
         ),
       ),
     );
   }
-
-  // Future<List<TrainingVideoDetails>> getData() async {
-  //   final response = await http.get(Uri.parse(
-  //       "http://$ipAddress/gsos/api.php?entity=training_video&id=1"));
-  //   var data = jsonDecode(response.body.toString());
-
-  //   if (response.statusCode == 200) {
-  //     for (Map<String, dynamic> index in data) {
-  //       training_video_details.add(TrainingVideoDetails.fromJson(index));
-  //     }
-  //     return training_video_details;
-  //   } else {
-  //     return training_video_details;
-  //   }
-  // }
 }

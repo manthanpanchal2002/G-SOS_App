@@ -5,11 +5,10 @@
 // String ipAddress = "http://172.17.16.80/gsos/";
 
 // manthan's ipAddress
-// String ipAddress = "http://192.168.60.137/gsos/";
+String ipAddress = "http://192.168.60.137/gsos/";
 
 // hosting ipAddress
-String ipAddress = "https://mygsos.000webhostapp.com/";
-
+// String ipAddress = "https://mygsos.000webhostapp.com/";
 
 class MyRoutes {
   static String WelcomePage = '/welcomepage';

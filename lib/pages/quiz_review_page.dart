@@ -460,7 +460,7 @@ class _BodyState extends State<Body> {
                                         children: [
                                           ListTile(
                                             title: Text(
-                                              "A)\t\${quiz_review_page[4].option1}",
+                                              "A)\t\t${quiz_review_page[4].option1}",
                                               style: GoogleFonts.montserrat(
                                                 textStyle: TextStyle(
                                                   fontSize: 13,
