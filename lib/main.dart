@@ -88,13 +88,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-// void storedLoggedInUser(bool isLoggedInUser) async {
-//   SharedPreferences preferences = await SharedPreferences.getInstance();
-//   preferences.setBool("isLoggedIn", isLoggedInUser);
-// }
-
-// Future<bool?> isLoggedInSatus() async {
-//   SharedPreferences preferences = await SharedPreferences.getInstance();
-//   return preferences.getBool("isLoggedIn") ?? false;
-// }

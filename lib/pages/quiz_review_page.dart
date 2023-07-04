@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -148,6 +147,14 @@ class _BodyState extends State<Body> {
                                           ),
                                           Divider(),
                                           Text(
+                                            "Your choice : ${quiz_review_page[0].userAnswer}\n",
+                                            style: GoogleFonts.montserrat(
+                                              textStyle: TextStyle(
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
                                             "Correct Ans. : ${quiz_review_page[0].correctAnswer}",
                                             style: GoogleFonts.montserrat(
                                               textStyle: TextStyle(
@@ -237,6 +244,14 @@ class _BodyState extends State<Body> {
                                           ),
                                           Divider(),
                                           Text(
+                                            "Your choice : ${quiz_review_page[1].userAnswer}\n",
+                                            style: GoogleFonts.montserrat(
+                                              textStyle: TextStyle(
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
                                             "Correct Ans. : ${quiz_review_page[1].correctAnswer}",
                                             style: GoogleFonts.montserrat(
                                               textStyle: TextStyle(
@@ -325,6 +340,14 @@ class _BodyState extends State<Body> {
                                           ),
                                           Divider(),
                                           Text(
+                                            "Your choice : ${quiz_review_page[2].userAnswer}\n",
+                                            style: GoogleFonts.montserrat(
+                                              textStyle: TextStyle(
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
                                             "Correct Ans. : ${quiz_review_page[2].correctAnswer}",
                                             style: GoogleFonts.montserrat(
                                               textStyle: TextStyle(
@@ -411,6 +434,14 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           Divider(),
+                                          Text(
+                                            "Your choice : ${quiz_review_page[3].userAnswer}\n",
+                                            style: GoogleFonts.montserrat(
+                                              textStyle: TextStyle(
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
                                           Text(
                                             "Correct Ans. : ${quiz_review_page[3].correctAnswer}",
                                             style: GoogleFonts.montserrat(
@@ -499,6 +530,14 @@ class _BodyState extends State<Body> {
                                             ),
                                           ),
                                           Divider(),
+                                          Text(
+                                            "Your choice : ${quiz_review_page[4].userAnswer}\n",
+                                            style: GoogleFonts.montserrat(
+                                              textStyle: TextStyle(
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
                                           Text(
                                             "Correct Ans. : ${quiz_review_page[4].correctAnswer}",
                                             style: GoogleFonts.montserrat(

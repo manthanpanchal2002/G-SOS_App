@@ -64,6 +64,7 @@ dependencies:
   intl: ^0.18.1
   shared_preferences: ^2.1.2
   flick_video_player: ^0.3.1
+  flutter_screenutil: ^5.8.4
 
 dev_dependencies:
   flutter_test:
